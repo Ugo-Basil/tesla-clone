@@ -1,22 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 
-export default function Section(props) {
+export default function Section({title, description, leftBtnText, rightBtnText, backgroundImg}) {
   return (
-    <Wrap bgImage= {props.backgroundImg} >
+    <Wrap bgImage={backgroundImg} >
+      <Fade bottom> 
         <ItemText>
-        <h1>{props.title }</h1>
-        <p>{props.description}</p>  
-      </ItemText>
+        <h1>{title }</h1>
+        <p>{description}</p>  
+        </ItemText>
+      </Fade>
       <Buttons>
+        <Fade bottom>
         <ButtonGroup>
-        <LeftButton>
-         {props.leftBtnText}
-        </LeftButton>
-        <RightButton>
-          {props.rightBtnText}
-        </RightButton>
-      </ButtonGroup>
+          <LeftButton>
+          {leftBtnText}
+          </LeftButton>
+         
+          { rightBtnText && 
+            <RightButton>
+              {rightBtnText}
+            </RightButton>
+          }
+        
+          </ButtonGroup>
+        </Fade>
       <DownArrow src="/images/down-arrow.svg"/>
 
       </Buttons>
@@ -26,7 +35,8 @@ export default function Section(props) {
 }
 
 
-const Wrap = styled.div`
+const Wrap = styled.div`\
+
 width: 100vw;
 height:100vh;
 background-size: cover;
@@ -44,6 +54,7 @@ background-image: ${props => `url('/images/${props.bgImage}')`}
 const ItemText = styled.div`
 padding-top:15vh;
 text-align:center;
+z-index: -1;
 `
 
 const ButtonGroup = styled.div`

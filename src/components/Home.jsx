@@ -44,10 +44,29 @@ export default function Home() {
       />
 
 
+        <Section
+        title='Solar for New Roofs'
+        description='Solar Roof Costs Less Than a New Roof Plus Solar Panels'
+        backgroundImg='solar-roof.jpg'
+        leftBtnText='Order now'
+        rightBtnText='Learn more' 
+      
+      />
+
+        <Section
+        title='Accessories'
+        description=''
+        backgroundImg='accessories.jpg'
+        leftBtnText='Shop now'
+    
+      />
+
+
       </Container>
   )
 }
 
 const Container = styled.div`
-height: 100vh
+height: 100vh;
+z-index: 10;
 `
